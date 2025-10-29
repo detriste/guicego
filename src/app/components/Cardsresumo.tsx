@@ -1,5 +1,6 @@
 'use client'
-import { Card, CardContent, Typography, Box } from '@mui/material'
+
+import { Box, Card, CardContent, Typography } from '@mui/material'
 
 export default function CardsResumo() {
   const cards = [
@@ -10,28 +11,29 @@ export default function CardsResumo() {
 
   return (
     <Box
-      sx={{
-        display: 'flex',
-        gap: 2,
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-      }}
+      display="flex"
+      justifyContent="space-between"
+      flexWrap="wrap"
+      gap={2}
+      sx={{ mt: 2 }}
     >
       {cards.map((card) => (
         <Card
           key={card.title}
           sx={{
-            flex: '1 1 30%',
-            minWidth: 200,
             backgroundColor: '#fff',
-            boxShadow: 2,
+            flex: '1 1 30%',
+            minWidth: 250,
+            textAlign: 'center',
+            boxShadow: 3,
+            borderRadius: 2,
           }}
         >
           <CardContent>
-            <Typography variant="h6" sx={{ color: 'text.secondary' }}>
+            <Typography variant="h6" color="text.secondary">
               {card.title}
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h4" color="text.primary" fontWeight="bold">
               {card.value}
             </Typography>
           </CardContent>

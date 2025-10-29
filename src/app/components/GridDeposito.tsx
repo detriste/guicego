@@ -1,5 +1,6 @@
 'use client'
-import { Grid, Card, Typography } from '@mui/material'
+
+import { Box, Card, Typography } from '@mui/material'
 
 const setores = [
   { nome: 'A1', status: 'ok' },
@@ -21,14 +22,26 @@ const getColor = (status: string) => {
 
 export default function GridDeposito() {
   return (
-    <Grid container spacing={2}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 2,
+      }}
+    >
       {setores.map((s) => (
-        <Grid >
+        <Box
+          key={s.nome}
+          sx={{
+            flex: '1 1 calc(33.33% - 16px)', // 3 colunas com espaçamento
+            minWidth: 120,
+          }}
+        >
           <Card sx={{ bgcolor: getColor(s.status), p: 2, textAlign: 'center' }}>
             <Typography variant="h6">{s.nome}</Typography>
           </Card>
-        </Grid>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   )
 }

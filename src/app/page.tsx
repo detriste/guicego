@@ -1,5 +1,6 @@
 'use client'
-import { Grid, Card, CardContent, Typography, Box } from '@mui/material'
+
+import { Box, Typography } from '@mui/material'
 import CardsResumo from './components/Cardsresumo'
 import GridDeposito from './components/GridDeposito'
 import FeedAtividades from './components/FeedAtividades'
@@ -11,16 +12,28 @@ export default function Dashboard() {
         Painel de Operações — Depósito Central
       </Typography>
 
+      {/* Cards de Resumo */}
       <CardsResumo />
 
-      <Grid container spacing={3} sx={{ mt: 2 }}>
-        <Grid item xs={8}>
+      {/* Layout principal */}
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 3,
+          mt: 2,
+          alignItems: 'flex-start',
+        }}
+      >
+        {/* Coluna esquerda (maior) */}
+        <Box sx={{ flex: 2 }}>
           <GridDeposito />
-        </Grid>
-        <Grid item xs={4}>
+        </Box>
+
+        {/* Coluna direita (menor) */}
+        <Box sx={{ flex: 1 }}>
           <FeedAtividades />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   )
 }
